@@ -51,4 +51,8 @@ jobs:
         run: poetry install --no-interaction
 
       - name: Run scenarios
-        run: make test
+        # Move project to ansible-requiered path to discover collection
+        run: |
+          mkdir -p ~/.ansible/collections/ansible_collections/artis3n/homelab
+          cp -r ./ ~/.ansible/collections/ansible_collections/artis3n/homelab
+          make test
