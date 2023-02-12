@@ -1,0 +1,3 @@
+---
+code_server_user: "{{ ansible_user }}"
+code_server_port: 8080

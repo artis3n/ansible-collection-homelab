@@ -1,17 +1,18 @@
 ---
-- name: Canonical Ads | Remove Motd-News Service
+- name: Remove Motd-News Service
   become: true
   ansible.builtin.file:
     path: /usr/lib/systemd/system/motd-news.service
     state: absent
+  notify: Reload Systemd
 
-- name: Canonical Ads | Remove Motd-News
+- name: Remove Motd-News
   become: true
   ansible.builtin.file:
     path: /etc/update-motd.d/50-motd-news
     state: absent
 
-- name: Canonical Ads | Check if Apt-News is Disabled
+- name: Check if Apt-News is Disabled
   check_mode: true
   register: apt_news
   ansible.builtin.lineinfile:
@@ -20,7 +21,7 @@
     line: '  apt_news: false'
     state: present
 
-- name: Canonical Ads | Disable Apt-News  # noqa: no-handler
+- name: Disable Apt-News  # noqa: no-handler
   become: true
   when: (apt_news is changed) or (apt_news is failed)
   ansible.builtin.command: pro config set apt_news=false
