@@ -17,6 +17,8 @@ tags:
   - ubuntu
   - development
   - server
+  - linux
+  - infrastructure
 
 dependencies:
   community.general: ">=6.3.0"
