@@ -20,7 +20,7 @@
     line: '  apt_news: false'
     state: present
 
-- name: Canonical Ads | Disable Apt-News
+- name: Canonical Ads | Disable Apt-News  # noqa: no-handler
   become: true
   when: (apt_news is changed) or (apt_news is failed)
-  command: pro config set apt_news=false
+  ansible.builtin.command: pro config set apt_news=false
