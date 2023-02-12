@@ -1,7 +1,6 @@
 #!/usr/bin/env make
-
-molecule_scenarios := $(patsubst %,%,$(notdir $(wildcard tests/molecule/*)))
+.DELETE_ON_ERROR:
 
 .PHONY: test
 test:
-	cd tests && poetry run molecule test -s ${molecule_scenarios}
+	cd tests && poetry run molecule test -s role_canonical_ads
