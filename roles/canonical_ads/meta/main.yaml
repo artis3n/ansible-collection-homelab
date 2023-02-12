@@ -26,4 +26,4 @@ dependencies: []
 
 argument_specs:
   main:
-    options: []
+    options: {}
