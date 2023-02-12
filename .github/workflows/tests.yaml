@@ -12,7 +12,9 @@ env:
 
 jobs:
   lint:
-    runs-on: ubuntu-22.04
+    # Molecule, cgroupsv2 and systemd errors when run on ubuntu 22.04
+    # but current molecule.yml croupsv2 configurations are fine on 20.04
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v3
