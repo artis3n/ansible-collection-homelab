@@ -1,0 +1,12 @@
+---
+- name: Prepare
+  hosts: all
+  tasks:
+    # This is pre-installed by default on Ubuntu distros,
+    # but is not in the Docker image so we have to add it
+    - name: Install Ubuntu Advantage
+      become: true
+      ansible.builtin.apt:
+        name: ubuntu-advantage-tools
+        cache_valid_time: 3600
+        state: present

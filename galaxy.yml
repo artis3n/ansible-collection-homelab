@@ -1,0 +1,28 @@
+---
+namespace: artis3n
+name: homelab
+version: 1.0.0
+readme: README.md
+
+authors:
+- Ari Kalfus <dev@artis3nal.com>
+
+description: Collection of roles for use in my homelab architecture.
+
+license:
+  - MIT
+
+tags:
+  - dev
+  - ubuntu
+  - development
+  - server
+
+dependencies:
+  community.general: ">=6.3.0"
+  community.crypto: ">=2.2.1"
+
+repository: https://github.com/artis3n/ansible-collection-homelab
+documentation: https://github.com/artis3n/ansible-collection-homelab
+homepage: https://github.com/artis3n/ansible-collection-homelab
+issues: https://github.com/artis3n/ansible-collection-homelab/issues
