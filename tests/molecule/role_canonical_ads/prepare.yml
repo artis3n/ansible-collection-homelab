@@ -2,6 +2,11 @@
 - name: Prepare
   hosts: all
   tasks:
+    - name: Update
+      become: true
+      ansible.builtin.apt:
+        upgrade: yes
+        cache_valid_time: 3600
     # This is pre-installed by default on Ubuntu distros,
     # but is not in the Docker image so we have to add it
     - name: Install Ubuntu Advantage

@@ -55,6 +55,4 @@ jobs:
         run: |
           mkdir -p ~/.ansible/collections/ansible_collections/artis3n/homelab
           cp -r ./ ~/.ansible/collections/ansible_collections/artis3n/homelab
-          sudo apt update
-          sudo apt upgrade -y
           make test
