@@ -12,9 +12,7 @@ env:
 
 jobs:
   lint:
-    # Molecule, cgroupsv2 and systemd errors when run on ubuntu 22.04
-    # but current molecule.yml croupsv2 configurations are fine on 20.04
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v3
@@ -57,4 +55,6 @@ jobs:
         run: |
           mkdir -p ~/.ansible/collections/ansible_collections/artis3n/homelab
           cp -r ./ ~/.ansible/collections/ansible_collections/artis3n/homelab
+          sudo apt update
+          sudo apt upgrade -y
           make test
