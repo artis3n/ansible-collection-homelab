@@ -33,10 +33,15 @@ jobs:
         run: make lint
 
   molecule:
-    runs-on: ubuntu-22.04
+    # Molecule, cgroupsv2 and systemd errors when run on ubuntu 22.04
+    # but current molecule.yml configurations are fine on 20.04
+    # even with cgroupsv2
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v3
+        with:
+          path: 'ansible_collections/artis3n/homelab'
 
       - name: Install dependency manager
         run: pipx install poetry
@@ -51,8 +56,4 @@ jobs:
         run: poetry install --no-interaction
 
       - name: Run scenarios
-        # Move project to ansible-requiered path to discover collection
-        run: |
-          mkdir -p ~/.ansible/collections/ansible_collections/artis3n/homelab
-          cp -r ./ ~/.ansible/collections/ansible_collections/artis3n/homelab
-          make test
+        run: make test
