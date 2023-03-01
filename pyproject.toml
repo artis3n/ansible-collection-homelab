@@ -11,7 +11,7 @@ ansible = "^7.2.0"
 
 
 [tool.poetry.group.dev.dependencies]
-ansible-lint = { version = "^6.12.2", markers = "platform_system != 'Windows'" }
+ansible-lint = { version = "^6.13.1", markers = "platform_system != 'Windows'" }
 molecule = {extras = ["docker"], version = "^4.0.4"}
 pytest = "^7.2.1"
 pre-commit = "^3.0.4"
