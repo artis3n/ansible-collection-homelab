@@ -33,9 +33,6 @@ jobs:
         run: make lint
 
   molecule:
-    # Molecule, cgroupsv2 and systemd errors when run on ubuntu 22.04
-    # but current molecule.yml configurations are fine on 20.04
-    # even with cgroupsv2
     runs-on: ubuntu-20.04
 
     steps:
