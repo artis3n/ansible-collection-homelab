@@ -17,13 +17,13 @@ provisioner:
 verifier:
   name: ansible
 scenario:
-  name: role_canonical_ads
+  name: role_code_server
   test_sequence:
-#    - dependency
+    - dependency
     - destroy
     - syntax
     - create
-    - prepare
+#    - prepare
     - converge
     - idempotence
 #    - verify

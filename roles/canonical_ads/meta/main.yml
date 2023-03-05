@@ -26,4 +26,10 @@ dependencies: []
 
 argument_specs:
   main:
+    version_added: 1.0.0
+    short_description: Disables Canonical's advertisements
+    description:
+      - Disables Canonical's advertisements on an Ubuntu server
+    author:
+      - Ari Kalfus (@artis3n) <dev@artis3nal.com>
     options: {}
