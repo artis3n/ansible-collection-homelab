@@ -28,4 +28,29 @@ dependencies: []
 
 argument_specs:
   main:
-    options: {}
+    version_added: 1.1.0
+    short_description: installs code-server on Ubuntu
+    description:
+      - Installs a Code-Server instnace onto an Ubuntu target
+    author:
+      - Ari Kalfus (@artis3n) <dev@artis3nal.com>
+    options:
+      code_server_address:
+        type: str
+        default: "Value of the 'ansible_host' fact"
+        description: "The address Code-Server should bind to (e.g. localhost, or another network interface IP)."
+
+      code_server_port:
+        type: int
+        default: 8080
+        description: "What port Code-Server should listen on."
+
+      code_server_password:
+        type: str
+        default: ""
+        description: "The password required to access Code-Server. Password will be stored as argon2 hash. Code-Server authentication is disabled if not present."
+
+      code_server_user:
+        type: str
+        default: "Value of the 'ansible_user_id' fact."
+        description: "Which local user should run the Code-Server systemd service."

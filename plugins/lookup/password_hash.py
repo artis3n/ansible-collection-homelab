@@ -1,6 +1,6 @@
 DOCUMENTATION = """
     name: password_hash
-    version_added: "2.14"
+    version_added: "1.1.0"
     author:
       - Ari Kalfus (@artis3n) <dev@artis3nal.com>
     short_description: generate a password hash

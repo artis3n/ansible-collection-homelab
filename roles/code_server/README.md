@@ -20,6 +20,12 @@ Optional, defaults to `8080`.
 
 What port Code-Server should listen on.
 
+### `code_server_user`
+
+Optional, defaults to the `ansible_user_id` fact.
+
+Which local user should run the Code-Server systemd service.
+
 ### `code_server_password`
 
 Optional. Code-Server authentication is disabled if not present.
@@ -33,12 +39,6 @@ The Ansible host must have `passlib[argon2]` installed before invoking this role
 > 
 > Note that the generated hash value will change each time this role is invoked, even if the raw input to this variable has not changed.
 > This will not impact your ability to use Code-Server, but will interfere with idempotency checks.
-
-### `code_server_user`
-
-Optional, defaults to the `ansible_user_id` fact.
-
-Which local user should run the Code-Server systemd service.
 
 ## Dependencies
 
