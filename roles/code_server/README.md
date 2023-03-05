@@ -6,7 +6,7 @@ This role installs [Code-Server](https://coder.com/docs/code-server/latest) onto
 Requirements
 ------------
 
-None
+- `passlib[argon2]` python package is installed on the host running Ansible if `code_server_password` is supplied.
 
 Role Variables
 --------------
@@ -29,6 +29,8 @@ Optional. Code-Server authentication is disabled if not present.
 
 The password required to access Code-Server.
 [Will be stored hashed](https://coder.com/docs/code-server/latest/FAQ#can-i-store-my-password-hashed) with argon2.
+
+The Ansible host must have `passlib[argon2]` installed before invoking this role in order to hash the password.
 
 > **Note**
 > 
