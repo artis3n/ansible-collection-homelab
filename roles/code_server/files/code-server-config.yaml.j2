@@ -1,3 +1,9 @@
-bind-addr: {{ ansible_host }}:{{ code_server_port }}
+bind-addr: {{ code_server_address }}:{{ code_server_port }}
+{% if code_server_password %}
+auth: password
+# https://coder.com/docs/code-server/latest/FAQ#can-i-store-my-password-hashed
+hashed-password: "{{ hashed_code_server_password | quote }}"
+{% else %}
 auth: none
+{% endif %}
 cert: false

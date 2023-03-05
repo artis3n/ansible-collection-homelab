@@ -12,7 +12,15 @@ update:
 	poetry run ansible-galaxy collection install --upgrade community.general
 
 .PHONY: test
-test:
+test: test-canonical-ads test-code-server
+
+.PHONY: test-code-server
+test-code-server:
+	cd tests && poetry run molecule test -s role_code_server
+	cd tests && poetry run molecule test -s role_code_server_with_pass
+
+.PHONY: test-canonical-ads
+test-canonical-ads:
 	cd tests && poetry run molecule test -s role_canonical_ads
 
 .PHONY: lint

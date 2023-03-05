@@ -2,6 +2,8 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: "Code Server without a password"
+    - name: "Code Server with a password"
       ansible.builtin.include_role:
         name: "artis3n.homelab.code_server"
+      vars:
+        code_server_password: "my password"

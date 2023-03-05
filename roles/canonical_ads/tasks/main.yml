@@ -23,5 +23,7 @@
 
 - name: Disable Apt-News  # noqa: no-handler
   become: true
+  register: disable_apt_news
   when: (apt_news is changed) or (apt_news is failed)
+  changed_when: disable_apt_news.rc != 0
   ansible.builtin.command: pro config set apt_news=false
