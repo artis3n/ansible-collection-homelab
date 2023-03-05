@@ -29,7 +29,7 @@ dependencies: []
 argument_specs:
   main:
     version_added: 1.1.0
-    short_description: installs code-server on Ubuntu
+    short_description: Installs code-server on Ubuntu
     description:
       - Installs a Code-Server instnace onto an Ubuntu target
     author:
