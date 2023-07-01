@@ -5,13 +5,26 @@ artis3n.homelab Release Notes
 .. contents:: Topics
 
 
+v1.2.0
+======
+
+Release Summary
+---------------
+
+Removes the ``code_server`` role.
+
+Minor Changes
+-------------
+
+- Removes the ``code_server`` role.
+
 v1.1.0
 ======
 
 Release Summary
 ---------------
 
-Adds a ``code_server`` role, a ``password_hash`` lookup plugin, and fixes the CI setup for ease of inclusion of future roles.
+Adds a ``code_server`` role, a ``password_hash`` lookup plugin, and fixes the CI setup for ease of inclusion of future roles. 
 
 Minor Changes
 -------------
