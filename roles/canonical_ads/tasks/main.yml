@@ -12,18 +12,26 @@
     path: /etc/update-motd.d/50-motd-news
     state: absent
 
-- name: Check if Apt-News is Disabled
-  check_mode: true
-  register: apt_news
-  ansible.builtin.lineinfile:
-    path: /etc/ubuntu-advantage/uaclient.conf
-    regexp: '^\s*apt_news:'
-    line: '  apt_news: false'
-    state: present
+- name: Get Ubuntu Advantage Config
+  become: true
+  register: ua_config
+  ansible.builtin.slurp:
+    src: /var/lib/ubuntu-advantage/user-config.json
 
-- name: Disable Apt-News  # noqa: no-handler
+- name: Parse Ubuntu Advantage Config
+  become: true
+  ansible.builtin.set_fact:
+    ua_config_parsed: "{{ ua_config.content | b64decode | from_json }}"
+
+- name: Get Apt-News Status
+  become: true
+  register: apt_news
+  ansible.builtin.set_fact:
+    apt_news: "{{ ua_config_parsed.apt_news }}"
+
+- name: Disable Apt-News
   become: true
   register: disable_apt_news
-  when: (apt_news is changed) or (apt_news is failed)
-  changed_when: disable_apt_news.rc != 0
-  ansible.builtin.command: pro config set apt_news=false
+  when: apt_news | bool
+  ansible.builtin.command: pro config set apt_news=False
+  changed_when: disable_apt_news.rc == 0

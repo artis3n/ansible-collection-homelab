@@ -26,15 +26,3 @@ test-canonical-ads:
 .PHONY: lint
 lint:
 	poetry run ansible-lint --profile=production
-
-.PHONY: release
-release: changelog-lint
-	poetry run antsibull-changelog release --update-existing
-
-.PHONY: changelog
-changelog: changelog-lint
-	poetry run antsibull-changelog generate
-
-.PHONY: changelog-lint
-changelog-lint:
-	poetry run antsibull-changelog lint
