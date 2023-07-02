@@ -15,3 +15,5 @@
     # But for the container, trigger UA to generate its config file
     - name: Run UA once
       ansible.builtin.command: pro config set apt_news=true
+      register: ua_update_aptnews
+      changed_when: ua_update_aptnews.rc == 0
