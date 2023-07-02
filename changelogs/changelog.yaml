@@ -27,7 +27,12 @@ releases:
     release_date: '2023-03-05'
   1.2.0:
     changes:
+      bugfixes:
+      - The ``canonical_ads`` role now correctly modifies Ubuntu Advantage's new configuration
+        file
       minor_changes:
       - Removes the ``code_server`` role.
+      - The ``canonical_ads`` role now masks Ubuntu Advantage services to prevent
+        them from being toggled back on by system updates.
       release_summary: Removes the ``code_server`` role.
-    release_date: '2023-07-01'
+    release_date: '2023-07-02'

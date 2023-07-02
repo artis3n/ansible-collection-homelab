@@ -17,6 +17,12 @@ Minor Changes
 -------------
 
 - Removes the ``code_server`` role.
+- The ``canonical_ads`` role now masks Ubuntu Advantage services to prevent them from being toggled back on by system updates.
+
+Bugfixes
+--------
+
+- The ``canonical_ads`` role now correctly modifies Ubuntu Advantage's new configuration file
 
 v1.1.0
 ======
