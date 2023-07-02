@@ -9,7 +9,7 @@ install:
 .PHONY: update
 update:
 	poetry update
-	poetry run ansible-galaxy collection install --upgrade community.general
+	poetry run ansible-galaxy collection install --requirements-file requirements.yml
 
 .PHONY: test
 test: test-canonical-ads test-clean
