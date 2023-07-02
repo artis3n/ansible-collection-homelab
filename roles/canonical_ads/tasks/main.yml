@@ -35,3 +35,15 @@
   when: apt_news | bool
   ansible.builtin.command: pro config set apt_news=False
   changed_when: disable_apt_news.rc == 0
+
+- name: Mask Services
+  become: true
+  ansible.builtin.systemd:
+    name: "{{ item }}.service"
+    enabled: false
+    state: stopped
+    masked: true
+  loop:
+    - apt-news
+    - esm-cache
+#    - motd-news

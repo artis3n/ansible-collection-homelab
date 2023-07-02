@@ -24,7 +24,7 @@ test-clean:
 	-rm -rf ~/.ansible/collections/ansible_collections/artis3n/homelab
 
 .PHONY: test-canonical-ads
-test-canonical-ads: test-prep
+test-canonical-ads:
 	cd tests && poetry run molecule test -s role_canonical_ads
 
 .PHONY: lint
