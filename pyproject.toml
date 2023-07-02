@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "homelab"
-version = "1.1.0"
+version = "1.2.0"
 description = ""
 authors = ["Artis3n <dev@artis3nal.com>"]
 readme = "README.md"
@@ -13,7 +13,8 @@ passlib = {extras = ["argon2"], version = "^1.7.4"}
 
 [tool.poetry.group.dev.dependencies]
 ansible-lint = { version = "^6.14.4", markers = "platform_system != 'Windows'" }
-molecule = {extras = ["docker"], version = "^4.0.4"}
+molecule = "^5.0.1"
+molecule-plugins = {extras = ["docker"], version = "^23.4.1"}
 pytest = "^7.2.1"
 pre-commit = "^3.2.1"
 antsibull-changelog = "^0.20.0"

@@ -38,7 +38,6 @@ jobs:
       matrix:
         molecule_test:
           - test-canonical-ads
-          - test-code-server
       fail-fast: false
 
     steps:

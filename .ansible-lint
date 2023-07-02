@@ -3,6 +3,7 @@ exclude_paths:
     - .github/
     - .idea/
     - .vscode/
+    - changelogs/
 
 skip_list:
     - yaml[line-length]

@@ -3,26 +3,36 @@ releases:
   1.1.0:
     changes:
       bugfixes:
-        - Adds a missing handler to ``canonical_ads`` to reload systemd after making service
-          changes.
+      - Adds a missing handler to ``canonical_ads`` to reload systemd after making
+        service changes.
       minor_changes:
-        - Adds a ``code_server`` role to install `Code-Server <https://github.com/coder/code-server>`_
-          on an Ubuntu target.
-        - Adds a ``password_hash`` lookup plugin to generate argon2, bcrypt, pbkdf2, or
-          scrypt hashes.
+      - Adds a ``code_server`` role to install `Code-Server <https://github.com/coder/code-server>`_
+        on an Ubuntu target.
+      - Adds a ``password_hash`` lookup plugin to generate argon2, bcrypt, pbkdf2,
+        or scrypt hashes.
       release_summary: 'Adds a ``code_server`` role, a ``password_hash`` lookup plugin,
-        and fixes the CI setup for ease of inclusion of future roles.
-        '
+        and fixes the CI setup for ease of inclusion of future roles. '
     fragments:
-      - 3-code-server.yaml
+    - 3-code-server.yaml
     objects:
       role:
-        - name: code_server
-          description: Installs code-server on Ubuntu
-          namespace: null
+      - description: Installs code-server on Ubuntu
+        name: code_server
+        namespace: null
     plugins:
       lookup:
-        - description: generate a password hash
-          name: password_hash
-          namespace: null
+      - description: generate a password hash
+        name: password_hash
+        namespace: null
     release_date: '2023-03-05'
+  1.2.0:
+    changes:
+      bugfixes:
+      - The ``canonical_ads`` role now correctly modifies Ubuntu Advantage's new configuration
+        file
+      minor_changes:
+      - Removes the ``code_server`` role.
+      - The ``canonical_ads`` role now masks Ubuntu Advantage services to prevent
+        them from being toggled back on by system updates.
+      release_summary: Removes the ``code_server`` role.
+    release_date: '2023-07-02'

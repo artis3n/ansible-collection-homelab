@@ -9,15 +9,19 @@ install:
 .PHONY: update
 update:
 	poetry update
-	poetry run ansible-galaxy collection install --upgrade community.general
+	poetry run ansible-galaxy collection install --requirements-file requirements.yml
 
 .PHONY: test
-test: test-canonical-ads test-code-server
+test: test-canonical-ads test-clean
 
-.PHONY: test-code-server
-test-code-server:
-	cd tests && poetry run molecule test -s role_code_server
-	cd tests && poetry run molecule test -s role_code_server_with_pass
+.PHONY: test-prep
+test-prep:
+	mkdir -p ~/.ansible/collections/ansible_collections/artis3n/homelab
+	cp -r ./ ~/.ansible/collections/ansible_collections/artis3n/homelab
+
+.PHONY: test-clean
+test-clean:
+	-rm -rf ~/.ansible/collections/ansible_collections/artis3n/homelab
 
 .PHONY: test-canonical-ads
 test-canonical-ads:
