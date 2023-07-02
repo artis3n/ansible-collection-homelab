@@ -1,6 +1,8 @@
 ---
 dependency:
   name: galaxy
+  options:
+    requirements-file: requirements.yml
 driver:
   name: docker
 platforms:
@@ -19,7 +21,7 @@ verifier:
 scenario:
   name: role_canonical_ads
   test_sequence:
-#    - dependency
+    - dependency
     - destroy
     - syntax
     - create

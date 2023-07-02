@@ -12,10 +12,19 @@ update:
 	poetry run ansible-galaxy collection install --upgrade community.general
 
 .PHONY: test
-test: test-canonical-ads
+test: test-canonical-ads test-clean
+
+.PHONY: test-prep
+test-prep:
+	mkdir -p ~/.ansible/collections/ansible_collections/artis3n/homelab
+	cp -r ./ ~/.ansible/collections/ansible_collections/artis3n/homelab
+
+.PHONY: test-clean
+test-clean:
+	-rm -rf ~/.ansible/collections/ansible_collections/artis3n/homelab
 
 .PHONY: test-canonical-ads
-test-canonical-ads:
+test-canonical-ads: test-prep
 	cd tests && poetry run molecule test -s role_canonical_ads
 
 .PHONY: lint
