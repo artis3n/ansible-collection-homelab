@@ -88,13 +88,13 @@ test = ["black", "coverage-enable-subprocess", "coverage[toml] (>=6.4.4)", "jmes
 
 [[package]]
 name = "antsibull-changelog"
-version = "0.20.0"
+version = "0.22.0"
 description = "Changelog tool for Ansible-base and Ansible collections"
 optional = false
 python-versions = ">=3.9.0"
 files = [
-    {file = "antsibull_changelog-0.20.0-py3-none-any.whl", hash = "sha256:e9f976b37b824d78185f98427e3fa62e3e8b539b49c4e670886d1fab650583ee"},
-    {file = "antsibull_changelog-0.20.0.tar.gz", hash = "sha256:f473f9cb07c615dc3ae0522934166da9972a1bb5520349627daad5f47e7b0435"},
+    {file = "antsibull_changelog-0.22.0-py3-none-any.whl", hash = "sha256:dfc6d6c9ca651b55af0e435e95c57faa33be4ff538d9f4446c6ff1a866d86f9e"},
+    {file = "antsibull_changelog-0.22.0.tar.gz", hash = "sha256:2e6356ab32bfef7efe3c047b3c25e4166532a094f545448be1b708ab3a5c6be3"},
 ]
 
 [package.dependencies]
@@ -107,9 +107,11 @@ semantic-version = "*"
 [package.extras]
 codeqa = ["flake8 (>=3.8.0)", "pylint", "reuse"]
 coverage = ["coverage[toml]"]
-dev = ["antsibull-changelog[codeqa]", "antsibull-changelog[coverage]", "antsibull-changelog[test]", "antsibull-changelog[typing]", "nox"]
-test = ["mock", "pytest", "pytest-cov", "pytest-error-for-skips"]
-typing = ["mypy", "pyre-check (>=0.9.17,<0.10.0)", "types-docutils", "types-pyyaml", "types-toml"]
+dev = ["antsibull-changelog[codeqa]", "antsibull-changelog[coverage]", "antsibull-changelog[formatters]", "antsibull-changelog[test]", "antsibull-changelog[typing]", "nox"]
+formatters = ["black", "isort"]
+test = ["pytest", "pytest-cov", "pytest-error-for-skips"]
+toml = ["tomli"]
+typing = ["mypy", "pyre-check (>=0.9.17)", "types-docutils", "types-pyyaml", "types-toml"]
 
 [[package]]
 name = "argon2-cffi"
@@ -1605,4 +1607,4 @@ dev = ["doc8", "flake8", "flake8-import-order", "rstcheck[sphinx]", "sphinx"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "1c56a622b5996833a36ed9dc7b05362645ee6fb1dcb09df258ad4d2cf48a883f"
+content-hash = "ca608b6f7332485d5ee900be5d56272e85956e0121f4441061c28413d03f0721"
